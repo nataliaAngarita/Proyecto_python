@@ -55,7 +55,7 @@ ROOT_URLCONF = 'ProyectoPy.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/TERCER ENTREGA_NATALIA ANGARITA/Proyecto_python/ProyectoPy/ProyectoPy/templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
