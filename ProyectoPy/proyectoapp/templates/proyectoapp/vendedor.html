@@ -3,14 +3,18 @@
 {% block contenido %}
 
 <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
-<section class="bg-light" id="services">
-    <div class="container px-4">
-        <div class="row gx-4 justify-content-center">
-            <div class="col-lg-8">
-                <h2>Clientes</h2>
-            </div>
-        </div>
-    </div>
-</section>
+{% if miFormulario.errors %} 
+<p style="color: red;">Estan mal los datos, revisar</p>
+{% endif %}
+
+<form action="" method="post">{% csrf_token %}
+    <!--Aca esta la magia-->
+    <table>
+        {{ miFormulario.as_table }}
+    </table>
+
+    <input type="submit", value="Enviar">
+
+</form>
 
 {% endblock %}
