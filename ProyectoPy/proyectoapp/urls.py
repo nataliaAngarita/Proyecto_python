@@ -9,4 +9,7 @@ urlpatterns = [
     path('vendedor', views.vendedor, name="Vendedor"),
     path('productos', views.productos, name="productos"),
     path('buscar/',views.buscar),
+    path('leerVendedor', views.leerVendedor, name = "leerVendedor"),
+    path('eliminarVendedor/<vendedor_nombre>/', views.eliminarVendedor, name="EliminarVendedor")
+
 ]

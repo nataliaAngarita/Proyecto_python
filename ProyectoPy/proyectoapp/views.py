@@ -5,12 +5,6 @@ from proyectoapp.forms import productoFormulario, clienteFormulario, vendedorFor
 # Create your views here.
 def inicio(request):
     return render(request, 'proyectoapp/inicio.html')
-def producto(request):
-    return render(request,'proyectoapp/producto.html')
-def cliente(request):
-    return render(request,'proyectoapp/cliente.html')
-def vendedor(request):
-    return render(request,'proyectoapp/vendedor.html')
 
 def productos(request):
     if request.method == 'post':
@@ -70,4 +64,17 @@ def buscar(request):
 
      return render(request,"proyectoapp/inicio.html",{"respuesta":respuesta})
 
+def leerVendedor(request):
+    vendedores = Vendedor.objects.all() #trae todos los profesores
+    contexto= {"vendedores":vendedores}
+    return render(request, "proyectoapp/leerVendedor.html",contexto) 
 
+
+def eliminarVendedor(request, vendedor_nombre):
+ 
+    vendedor = Vendedor.objects.get(nombre=vendedor_nombre)
+    vendedor.delete()
+
+    vendedores = Vendedor.objects.all()  # trae todos los profesores
+    contexto = {"vendedores": vendedores}
+    return render(request, "proyectoapp/leerVendedor.html", contexto)
